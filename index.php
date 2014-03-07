@@ -14,11 +14,11 @@ if (isset($_COOKIE['MyLoginPage'])) {
 
 
 
-
 print "<h1>OpenWebServer</h1>";
 print "<h2>Monitor</h2>";
-print "Monitor Ram/Swap\n";
+print "Monitor Ram";
 print "</br>";
+//Start of Ram
 // get used memory
 $mem_use = memory_get_usage(true) . "\n"; // 57960
 // get memory percentage
@@ -35,14 +35,35 @@ $image2 = "&leftFill=%23CC0000";
 //plain text memory (Old)
 //echo $tot_mem."%";
 
-//percentage bar (Default) 
-echo '<img src="'.$image.$tot_mem.$image2.'" alt="random image" />'."<br /><br />"; 
+//percentage bar (Default)
+echo '<img src="'.$image.$tot_mem.$image2.'" alt="random image" />'."<br /><br />";
+//End of RAM
 
 
 
+//Start of Disk Analasis
+//Total Disk
+echo "Disk Space Analasis </br>";
+$tot_disk = disk_total_space("/");
+$tot_diskad = $tot_disk/1073741824;
+$tot_diskrd = (round($tot_diskad,2));
 
 
+//Used Disk
+//Free space
+$disk_free = disk_free_space("/");
+$disk_gb = $disk_free/1073741824;
 
+
+$free_rounded = (round($disk_gb,2));
+//Disk Left
+$disk_used = $tot_diskad - $disk_gb;
+$disk_rounded = (round($disk_used,2));
+//echo $disk_rounded." GB filled of ".$tot_diskrd." GB";
+//Disk Left Percentage
+$percent1 = $disk_rounded / $tot_diskrd;
+$percent2 = $percent1 * 100;
+echo '<img src="'.$image.$percent2.$image2.'" alt="random image" />'."<br /><br/><br />";
 
 
 
