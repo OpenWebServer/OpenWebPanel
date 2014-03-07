@@ -7,25 +7,46 @@ if (isset($_COOKIE['MyLoginPage'])) {
    if ($_COOKIE['MyLoginPage'] == md5($password.$randomword)) {
 ?>
 
-<?php
-// start of  Control panel
-
 
 
 <?php
 // start of  Control panel
+
+
+
+
 print "<h1>OpenWebServer</h1>";
 print "<h2>Monitor</h2>";
-print "Monoitor Ram/Swap";
-header("Content-type: text/plain");
+print "Monitor Ram/Swap\n";
+print "</br>";
+// get used memory
+$mem_use = memory_get_usage(true) . "\n"; // 57960
+// get memory percentage
+function get_memory() {
+  foreach(file('/proc/meminfo') as $ri)
+    $m[strtok($ri, ':')] = strtok('');
+  return 100 - round(($m['MemFree'] + $m['Buffers'] + $m['Cached']) / $m['MemTotal'] * 100);
+}
+$tot_mem = get_memory();
+//percentage bar varibles
+$image = "http://www.yarntomato.com/percentbarmaker/button.php?barPosition=";
+$image2 = "&leftFill=%23CC0000";
 
-// tell php to automatically flush after every output
-// including lines of output produced by shell commands
-disable_ob();
+//plain text memory (Old)
+//echo $tot_mem."%";
 
-$command = 'pa aux';
-$proc = system($command);
-print #proc  
+//percentage bar (Default) 
+echo '<img src="'.$image.$tot_mem.$image2.'" alt="random image" />'."<br /><br />"; 
+
+
+
+
+
+
+
+
+
+
 
 // end of Control Panel
 ?>
@@ -33,9 +54,6 @@ print #proc
 
 
 
-
-// end of Control Panel
-?>
 
 <?php
       exit;
