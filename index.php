@@ -12,11 +12,16 @@ if (isset($_COOKIE['MyLoginPage'])) {
 <?php
 // start of  Control panel
 
+$name = "<h1>OpenWebPanel</h1>";
+$view = "<h2>Monitor</h2>";
+$monitorram = "Monitor Ram";
+$spaceanaly = "Disk Space Ananysis";
 
 
-print "<h1>OpenWebServer</h1>";
-print "<h2>Monitor</h2>";
-print "Monitor Ram";
+
+print $name;
+print $view;
+print $monitorram;
 print "</br>";
 //Start of Ram
 // get used memory
