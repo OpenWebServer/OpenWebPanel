@@ -11,7 +11,7 @@ if (isset($_COOKIE['MyLoginPage'])) {
 
 <?php
 // start of  Control panel
-
+$cont = "Memory Analysis", "Disk Analysis", ""
 $name = "<h1>OpenWebPanel</h1>";
 $view = "<h2>Monitor</h2>";
 $monitorram = "Monitor Ram";
@@ -64,7 +64,8 @@ $free_rounded = (round($disk_gb,2));
 //Disk Left
 $disk_used = $tot_diskad - $disk_gb;
 $disk_rounded = (round($disk_used,2));
-//echo $disk_rounded." GB filled of ".$tot_diskrd." GB";
+echo $disk_rounded." GB filled of ".$tot_diskrd." GB";
+echo "</br>"
 //Disk Left Percentage
 $percent1 = $disk_rounded / $tot_diskrd;
 $percent2 = $percent1 * 100;
