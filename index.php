@@ -11,7 +11,7 @@ if (isset($_COOKIE['MyLoginPage'])) {
 
 <?php
 // start of  Control panel
-$cont = "Memory Analysis", "Disk Analysis", ""
+
 $name = "<h1>OpenWebPanel</h1>";
 $view = "<h2>Monitor</h2>";
 $monitorram = "Monitor Ram";
