@@ -25,9 +25,6 @@ if (isset($_COOKIE['MyLoginPage'])) {
  <div class="container">
          
          <div class="hero-unit">
-         
-<a href="settings.php" target="_blank">
-<img src="settings.png" border="2"  width="40" height="40" alt="Settings" />
 </a>
          <h1>OpenWebPanel</h1>
          <p>The most awesomest dev team ever!</p>
